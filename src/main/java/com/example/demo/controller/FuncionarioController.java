@@ -29,4 +29,11 @@ public class FuncionarioController {
         return repository.save(funcionario);
     }
 
+    // apesar das duas fonções serem iguias, criei duas para garantir que o usuarios não se confulda
+    // para atualizar um funcionario, é necessario se certificar do id do funcionario que esta sendo atualizado
+    @PostMapping(path = "/api/funcionario/atualizar")
+    public Funcionario Atualizar(@RequestBody Funcionario funcionario){
+        return repository.save(funcionario);
+    }
+
 }
