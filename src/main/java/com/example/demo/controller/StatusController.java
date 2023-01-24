@@ -8,7 +8,7 @@ public class StatusController {
     
     @GetMapping(path = "/api/status")
     public String getStatus() {
-        return "OK";
+        return "Servidor funcionando";
     }
 
 }
