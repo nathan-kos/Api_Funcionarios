@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Usuario;
-import com.example.demo.repository.UsuarioRepository;
+import com.example.demo.model.Funcionario;
+import com.example.demo.repository.FuncionarioRepository;
 
 @RestController
-public class UsuarioController {
+public class FuncionarioController {
 
     @Autowired
-    private UsuarioRepository repository;
+    private FuncionarioRepository repository;
     
-    @GetMapping(path = "/api/usuario/{id}")
-    public ResponseEntity<Usuario> Consultar(@PathVariable("id") String id) {
+    @GetMapping(path = "/api/funcionario/{id}")
+    public ResponseEntity<Funcionario> Consultar(@PathVariable("id") String id) {
         return repository.findById(Long.parseLong(id))
                 .map(record -> ResponseEntity.ok().body(record))
                 .orElse(ResponseEntity.notFound().build());
