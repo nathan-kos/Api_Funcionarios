@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,6 +56,11 @@ public class FuncionarioController {
     //         return "funcionario não encontrado";
     //     }
     // }
+
+    @GetMapping(path = "/api/funcionario/listar")
+    public List<Funcionario> Listar(){
+        return repository.findAll();
+    }
    
 }
 
