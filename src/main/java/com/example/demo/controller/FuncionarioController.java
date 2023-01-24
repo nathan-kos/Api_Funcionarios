@@ -36,4 +36,24 @@ public class FuncionarioController {
         return repository.save(funcionario);
     }
 
+    @GetMapping(path = "/api/funcionario/deletar/{id}")
+    public ResponseEntity<Funcionario> Deletar(@PathVariable("id") long id){
+        return repository.findById(id)
+                .map(record -> {
+                    repository.deleteById(id);
+                    return ResponseEntity.ok().body(record);
+                }).orElse(ResponseEntity.notFound().build());
+    }
+
+    // @GetMapping(path = "/api/funcionario/deletar/{id}")
+    // public String Deletar(@PathVariable("id") long id){
+    //     if(repository.findById(id) != null){
+    //     repository.deleteById(id);
+    //     return "Deletado com sucesso";
+    //     }else{
+    //         return "funcionario não encontrado";
+    //     }
+    // }
+   
 }
+
